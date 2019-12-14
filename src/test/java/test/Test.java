@@ -7,6 +7,14 @@ import java.util.Random;
 
 public class Test {
     public static void main(String[] args){
+        String str = "Hello";
+        test(str);
+        System.out.println(str);
+    }
+    public static void test(String str){
+        str+="World";
+
+
 //        String str1="hello";
 //        String str2="hello";
 //        String str3="hello"+"world";
@@ -55,7 +63,7 @@ public class Test {
 //        System.out.println(str.substring(0, 1));
 //        System.out.println(str.substring(0, str.length() - 1));
 //        //System.out.println(str.substring(0, str.length() + 1));
-        System.out.println("F".equalsIgnoreCase("f"));
+//        System.out.println("F".equalsIgnoreCase("f"));
 
     }
 
@@ -96,8 +104,8 @@ public class Test {
 
     @org.testng.annotations.Test
     public void testmy() {
-//        Integer[] arr1 = {1, 2, 3, 4, 5,6,7,8,9,10};
-//        Integer[] arr2 = {11, 12, 13, 14, 15};
+        Integer[] arr1 = {1, 2, 3, 4, 5,6,7,8,9,10};
+        Integer[] arr2 = {11, 12, 13, 14, 15,16,17};
 //        int[] arry = {32, 34, 234, 23, 42, 67, 78, 45, 78};
 //
 //// 拷贝数组 arr1 的前 3 个元素
@@ -118,9 +126,9 @@ public class Test {
 //        Integer[] arr4 = Arrays.copyOfRange(arr1, 1, 3);
 //        System.out.println(Arrays.toString(arr4));
 //
-//// 拷贝数组 arr2 的后 3 位到 arr1 到后 3 位
-//        System.arraycopy(arr2, 2, arr1, 2, 3);
-//        System.out.println(Arrays.toString(arr1));
+//// 拷贝数组 arr2 的后 3 位到 arr1 到后 3 位(arr2里从下标为2开始的三位数覆盖arr1下标为2开始的三个数字）
+        System.arraycopy(arr2, 2, arr1, 2, 3);
+        System.out.println(Arrays.toString(arr1));
 //
 
     }
@@ -209,6 +217,7 @@ public class Test {
     @org.testng.annotations.Test
     public void testee() {
         Integer[] n = new Integer[5];
+        //随机生成方法
         n[0]=new Random().nextInt(10);
         n[1]=new Random().nextInt(5);
         n[2]=new Random().nextInt(10);
