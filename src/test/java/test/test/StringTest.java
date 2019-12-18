@@ -1,9 +1,11 @@
 package test.test;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.testng.annotations.Test;
+import sun.text.normalizer.UnicodeSetIterator;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
+import java.util.*;
 import java.util.function.DoubleToIntFunction;
 
 public class StringTest {
@@ -88,11 +90,14 @@ public class StringTest {
         String str="accbbhhjjwwww";
         String str2="Aa,bs cb.ee!brt";
         String str4="";
-        String[] str5=str2.split("[, .!?]");
-        for (String st:str5){
-            System.out.println(st);
-        }
-        System.out.println(Arrays.toString(str5));
+        String str5=String.format("%s,%d%n,%b,%h","sdafa",234,false,'A');
+        System.out.println(str5);
+//        String[] str5=str2.split("[, .!?]");
+//        for (String st:str5){
+//            System.out.println(st);
+//        }
+//        System.out.println(Arrays.toString(str5));
+        //System.out.println(String.format(str,"%c",'c'));
 //        System.out.println(str2);
         //System.out.println(str4.isEmpty());
 //        System.out.println(str2.toLowerCase());
@@ -135,6 +140,120 @@ public class StringTest {
 ////        System.out.println(s1.concat("lowsang"));
 //        System.out.println(s1.compareTo(s2));
 //        System.out.println(s1.compareToIgnoreCase(s2));
+
+    }
+
+    @Test
+    public void testBuilder() {
+        StringBuffer str=new StringBuffer();
+        str.append("adc");
+        str.append(123);
+        str.append('g');
+        str.append(true);
+        System.out.println(str);
+        str.delete(6,8);
+        System.out.println(str);
+        System.out.println(str.reverse());
+        System.out.println(str.insert(3,false));
+        StringBuilder str1=new StringBuilder();
+        str1.append("2s");
+        str1.append("大家我是周杰伦");
+        str1.append(2234);
+        str1.append(false);
+        System.out.println(str1);
+        str1.deleteCharAt(5);
+        System.out.println(str1);
+        System.out.println(str1.reverse());
+        System.out.println(str1.insert(4,"23df234true"));
+        System.out.println(str1.deleteCharAt(1));
+        System.out.println(str1.delete(2,8));
+    }
+
+    @Test
+    public void testHashcode() {
+//        String name="hee";
+//        String num="hee";
+//        char[] ch={'h','e','e'};
+//        boolean flag=true;
+//        long s=23423423;
+//        Integer ss=234234;
+//        Character ch1='A';
+//        System.out.println(name.hashCode());
+//        System.out.println(num.hashCode());
+//        System.out.println(ch.hashCode());
+//        System.out.println(ss.hashCode());
+//        System.out.println(ch1.hashCode());
+        List<String> list1=new ArrayList<String>();
+        list1.add("hhhh");
+        list1.add("jkjjjj");
+        list1.add("dddd");
+        System.out.println(list1);
+        Iterator iterator=new Iterator() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public Object next() {
+                return null;
+            }
+        };
+
+        if(list1.iterator().hasNext()){
+            System.out.println(list1);
+        }
+        Iterator iterator1=new ListIterator() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public Object next() {
+                return null;
+            }
+
+            @Override
+            public boolean hasPrevious() {
+                return false;
+            }
+
+            @Override
+            public Object previous() {
+                return null;
+            }
+
+            @Override
+            public int nextIndex() {
+                return 0;
+            }
+
+            @Override
+            public int previousIndex() {
+                return 0;
+            }
+
+            @Override
+            public void remove() {
+
+            }
+
+            @Override
+            public void set(Object o) {
+
+            }
+
+            @Override
+            public void add(Object o) {
+
+            }
+        };
+        if(list1.iterator().next()!=null){
+        System.out.println(list1);}
+        if(list1.iterator().hasNext()){
+            System.out.println(list1);
+        }
 
     }
 }
